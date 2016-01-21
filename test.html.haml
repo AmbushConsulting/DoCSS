@@ -32,6 +32,7 @@
     .object-code > *{
       margin-top: 20px;
       & pre {
+        margin-top:0;
         padding: 10px;
         box-shadow: 1px -1px 0px rgba(0,0,0,.2);
       }
@@ -129,7 +130,7 @@
     .row.object-body
       .col-lg-12
         %h3 Proxima Nova:
-        = build do
+        = build_docss do
           %span.proxima-font.two-em Main body font
           .row
             .proxima-font
@@ -137,5 +138,6 @@
               .normal.col-lg-3 Normal = 400
               .semi-bold.col-lg-3 Semi Bold = 600
               .bold.col-lg-3 Bold = 700
-        = build do
+        = build_docss do
           %span.museo-font.two-em Used for CTA and Headers
+        
