@@ -3,6 +3,7 @@
 Wrap a block of `HAML` inside a `build_docss {}` block and it will output the corresponding `HAML` and `HTML` code needed to display that object.
 
 Majorly just a WIP
+__for now run `ruby play.rb` and it will build `test.html.haml`__
 
 TODO:
  - Manage CSS better
