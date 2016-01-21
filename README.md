@@ -11,6 +11,7 @@ TODO:
  - Implement watcher to auto rebuild files
   - Guard would be my first thought
  - Deal with required wrapper tags better
+ - Turn into a gem
 
 ### Example:
 
