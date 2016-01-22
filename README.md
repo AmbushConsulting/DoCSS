@@ -12,7 +12,7 @@ Majorly just a WIP!
 2. Bundle install: `bundle`
 3. Run Rack:       `bundle exec rackup`
 4. View test page: `localhost:9292/test`
-5. View README:    `localhost:9292/` *(works sometimes)*
+5. View README:    `localhost:9292/` ~~(works sometimes)~~
 
 TODO:
 
