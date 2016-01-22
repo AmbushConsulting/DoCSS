@@ -42,4 +42,4 @@ Haml files compiled per request. All other files handled via `Rack::Reloader`
 ```
 
 Would render:
-![example image](/images/example.png)
+![example image](/assets/images/example.png)

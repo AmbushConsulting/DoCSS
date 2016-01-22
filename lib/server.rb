@@ -5,7 +5,8 @@ module DoCSS
   class Server
     def self.call(env)
       request = Rack::Request.new env
-      request_pathname = Pathname.new(request.path).basename
+      path = Pathname.new(request.path)
+      request_pathname = path.basename(path.extname)
       files = Dir.glob("#{request_pathname}.html.haml")
       if files.empty?
         return [404, {}, [""]]
