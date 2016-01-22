@@ -18,15 +18,18 @@ TODO:
 
 * ~~Manage CSS better~~
 
-CSS now managed via Rack middleware
+  CSS now managed via Rack middleware
 
 * ~~Implement watcher to auto rebuild files~~
 
-Haml files compiled per request. All other files handled via `Rack::Reloader`
+  Haml files compiled per request. All other files handled via `Rack::Reloader`
 
 * Deal with required wrapper tags better
 * Turn into a gem
-* Fix `DoCSS::Indexer` middleware
+
+* ~~Fix `DoCSS::Indexer` middleware~~
+
+  Index now created only when navigating to `index.html` or `/` and is created on the fly
 
 ### Example:
 

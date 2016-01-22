@@ -22,28 +22,31 @@ module DoCSS
       @app = app
     end
     def call(env)
-      status, headers, body = @app.call env
-      File.open('assets/index.html', "w") do |file|
-        rendered_html = ''
-        File.open('README.md', "rb") do |md|
+      request = Rack::Request.new env
+      path = Pathname.new(request.path)
+      if request.path == '/index.html' || request.path == '/'
+        rendered_html = File.open('README.md', "rb") do |md|
           markdown = Redcarpet::Markdown.new(HTMLwithPygments, autolink: true, fenced_code_blocks: true, strikethrough: true)
-          foo = md.read
-          rendered_html = markdown.render(foo)
+          markdown.render(md.read)
         end
-        file.write "<!DOCTYPE html>\n"
-        file.write "<html>\n"
-        file.write "  <head>\n"
-        file.write "    <link href='/css/site.css' rel='stylesheet' type='text/css'></link>\n"
-        file.write "    <style>img {max-width:600px; display:block;}</style>\n"
-        file.write "  </head>\n"
-        file.write "  <body>\n"
-        file.write "    <div class='container objects'>\n"
-        file.write rendered_html
-        file.write "    </div>\n"
-        file.write "  </body>\n"
-        file.write "</html>"
+        response = Rack::Response.new
+        response.write "<!DOCTYPE html>\n"
+        response.write "<html>\n"
+        response.write "  <head>\n"
+        response.write "    <link href='/css/site.css' rel='stylesheet' type='text/css'></link>\n"
+        response.write "    <style>img {max-width:600px; display:block;}</style>\n"
+        response.write "  </head>\n"
+        response.write "  <body>\n"
+        response.write "    <div class='container objects'>\n"
+        response.write rendered_html
+        response.write "    </div>\n"
+        response.write "  </body>\n"
+        response.write "</html>"
+        response.status = 200
+        response.finish
+      else
+        @app.call env
       end
-      [status, headers, body]
     end
   end
 end
