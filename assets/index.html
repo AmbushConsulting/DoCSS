@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href='/css/site.css' rel='stylesheet' type='text/css'></link>
+    <style>img {max-width:600px; display:block;}</style>
+  </head>
+  <body>
+    <div class='container objects'>
+<h1>DoCSS is for building living styleguides</h1>
+
+<p>Wrap a block of <span style="color:#E05757;background-color:#ECECEC;padding:5px;">HAML</span> inside a <span style="color:#E05757;background-color:#ECECEC;padding:5px;">build_docss {}</span> block and it will output the corresponding <span style="color:#E05757;background-color:#ECECEC;padding:5px;">HAML</span> and <span style="color:#E05757;background-color:#ECECEC;padding:5px;">HTML</span> code needed to display that object.</p>
+
+<p>Majorly just a WIP!</p>
+
+<p><del><em>If you want to play around, for now run</em> <span style="color:#E05757;background-color:#ECECEC;padding:5px;">ruby play.rb</span> <strong>and it will build</strong> <span style="color:#E05757;background-color:#ECECEC;padding:5px;">test.html.haml</span></del></p>
+
+<h2><strong>NOW WITH RACK!</strong></h2>
+
+<ol>
+<li>Clone the app:  <span style="color:#E05757;background-color:#ECECEC;padding:5px;">git clone https://github.com/kormie/DoCSS</span></li>
+<li>Bundle install: <span style="color:#E05757;background-color:#ECECEC;padding:5px;">bundle</span></li>
+<li>Run Rack:       <span style="color:#E05757;background-color:#ECECEC;padding:5px;">bundle exec rackup</span></li>
+<li>View test page: <span style="color:#E05757;background-color:#ECECEC;padding:5px;">localhost:9292/test</span></li>
+<li>View README:    <span style="color:#E05757;background-color:#ECECEC;padding:5px;">localhost:9292/</span> <em>(works sometimes)</em></li>
+</ol>
+
+<p>TODO:</p>
+
+<ul>
+<li><del>Manage CSS better</del></li>
+</ul>
+
+<p>CSS now managed via Rack middleware</p>
+
+<ul>
+<li><del>Implement watcher to auto rebuild files</del></li>
+</ul>
+
+<p>Haml files compiled per request. All other files handled via <span style="color:#E05757;background-color:#ECECEC;padding:5px;">Rack::Reloader</span></p>
+
+<ul>
+<li>Deal with required wrapper tags better</li>
+<li>Turn into a gem</li>
+<li>Fix <span style="color:#E05757;background-color:#ECECEC;padding:5px;">DoCSS::Indexer</span> middleware</li>
+</ul>
+
+<h3>Example:</h3>
+<div class="highlight"><pre><span class="p">=</span> <span class="n">build_docss</span> <span class="k">do</span>
+  <span class="nc">.taco</span>
+    This is where tacos go!
+    <span class="nt">%span</span>
+      This is a span about tacos
+      <span class="nt">%a</span><span class="p">{</span><span class="ss">href</span><span class="p">:</span> <span class="s1">&#39;http://www.tacos.com&#39;</span><span class="p">}</span>
+        This is a link about tacos!
+    <span class="nt">%span</span><span class="nf">#nachos</span> Nachos are cool too!
+</pre></div>
+<p>Would render:
+<img src="/images/example.png" alt="example image"></p>
+    </div>
+  </body>
+</html>

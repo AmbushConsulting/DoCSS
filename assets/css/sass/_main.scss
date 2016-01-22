@@ -1,0 +1,64 @@
+$background-color: #F0F7FF;
+$border-color: desaturate(darken($background-color, 30%), 90%);
+
+.container.objects {
+  margin-top:20px;
+  color: #5D6265;
+  h1,h1,h3,h4,h5,h6{
+    text-shadow: 0 -1px 0 rgba(255,255,255,.7);
+  }
+}
+.object {
+  padding:10px 20px;
+  margin-bottom: 20px;
+  background-color:$background-color;
+  border-radius: 8px;
+  border: 1px solid $border-color;
+
+  & > div {
+    margin: auto 20px;
+  }
+
+  .object-heading {
+    margin-top:10px;
+    border-bottom: 1px solid $border-color;
+  }
+
+  .object-body {
+    padding-top: 20px;
+  }
+
+  .object-code > *{
+    margin-top: 20px;
+    & pre {
+      margin-top:0;
+      padding: 10px;
+      box-shadow: 1px -1px 0px rgba(0,0,0,.2);
+    }
+
+    &::before{
+      background-color: white;
+      padding: 5px;
+      padding-bottom: 2px;
+      border-radius: 5px 5px 0 0;
+      box-shadow: 1px -1px 0px rgba(0,0,0,.2);
+    }
+    &.html::before{
+      content: "html"
+    }
+    &.haml::before{
+      content: "haml"
+    }
+  }
+}
+.box{
+  background-color: white;
+  padding:10px;
+  display:inline-block;
+  &.grey{
+    background-color: #373A3C;
+  }
+}
+.highlight pre {
+  text-shadow: none;
+}

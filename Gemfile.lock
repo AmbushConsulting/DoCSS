@@ -1,12 +1,27 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    erubis (2.7.0)
     haml (4.0.7)
       tilt
+    html2haml (2.0.0)
+      erubis (~> 2.7.0)
+      haml (~> 4.0.0)
+      nokogiri (~> 1.6.0)
+      ruby_parser (~> 3.5)
+    mini_portile2 (2.0.0)
+    nokogiri (1.6.7.1)
+      mini_portile2 (~> 2.0.0.rc2)
     posix-spawn (0.3.11)
     pygments.rb (0.6.3)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.2.0)
+    rack (1.6.4)
+    redcarpet (3.0.0)
+    ruby_parser (3.7.2)
+      sexp_processor (~> 4.1)
+    sass (3.4.21)
+    sexp_processor (4.6.0)
     tilt (2.0.2)
     yajl-ruby (1.2.1)
 
@@ -15,7 +30,11 @@ PLATFORMS
 
 DEPENDENCIES
   haml
+  html2haml
   pygments.rb
+  rack
+  redcarpet
+  sass
 
 BUNDLED WITH
    1.10.6

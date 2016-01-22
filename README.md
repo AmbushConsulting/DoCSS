@@ -4,16 +4,29 @@ Wrap a block of `HAML` inside a `build_docss {}` block and it will output the co
 
 Majorly just a WIP!
 
-*If you want to play around, for now run* `ruby play.rb` **and it will build** `test.html.haml`
+~~*If you want to play around, for now run* `ruby play.rb` **and it will build** `test.html.haml`~~
+
+## **NOW WITH RACK!**
+
+1. Clone the app:  `git clone https://github.com/kormie/DoCSS`
+2. Bundle install: `bundle`
+3. Run Rack:       `bundle exec rackup`
+4. View test page: `localhost:9292/test`
+5. View README:    `localhost:9292/` *(works sometimes)*
 
 TODO:
- - Manage CSS better
-  - Rails could use an engine, not sure about elsewhere
-  - Should be configurable
- - Implement watcher to auto rebuild files
-  - Guard would be my first thought
- - Deal with required wrapper tags better
- - Turn into a gem
+
+* ~~Manage CSS better~~
+
+CSS now managed via Rack middleware
+
+* ~~Implement watcher to auto rebuild files~~
+
+Haml files compiled per request. All other files handled via `Rack::Reloader`
+
+* Deal with required wrapper tags better
+* Turn into a gem
+* Fix `DoCSS::Indexer` middleware
 
 ### Example:
 
@@ -29,4 +42,4 @@ TODO:
 ```
 
 Would render:
-![example image](example.png)
+![example image](/images/example.png)
